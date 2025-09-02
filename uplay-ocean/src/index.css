@@ -1,0 +1,117 @@
+:root {
+  --aqua: #00C2D1;
+  --deep: #005F73;
+  --coral: #FF7F50;
+  --sand: #FFD166;
+  --ink: #03222a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: white;
+  background: radial-gradient(1200px 800px at 50% -200px, rgba(0, 194, 209, 0.25), transparent 70%),
+              linear-gradient(180deg, #001b22 0%, #003847 45%, #00586c 100%);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.baloo {
+  font-family: "Baloo 2", cursive;
+}
+
+.page-container {
+  position: relative;
+  min-height: 100dvh;
+}
+
+.ocean-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ocean-layer {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat-x;
+  background-size: 200% 100%;
+  opacity: 0.18;
+}
+
+.ocean-waves {
+  background-image: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.12) 0 2px, transparent 3px),
+                    radial-gradient(circle at 60% 60%, rgba(255,255,255,0.10) 0 2px, transparent 3px);
+  animation: drift 30s linear infinite;
+}
+
+.ocean-waves-2 {
+  opacity: 0.12;
+  filter: blur(2px);
+  animation: drift 50s linear infinite reverse;
+}
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Buttons */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  border: none;
+  background: var(--aqua);
+  color: #002a33;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 194, 209, 0.35);
+}
+
+.btn.coral { background: var(--coral); color: #2b0c06; box-shadow: 0 8px 20px rgba(255,127,80,0.35); }
+.btn.deep { background: var(--deep); color: #e6fcff; box-shadow: 0 8px 20px rgba(0,95,115,0.35); }
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(1px); }
+
+/* Ripple hover effect helper (JS adds span) */
+.ripple { position: absolute; border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); background: rgba(255,255,255,0.6); }
+
+/* Sections */
+section { position: relative; }
+.section-padding { padding: 80px 20px; }
+.container { width: min(1200px, 92%); margin: 0 auto; }
+
+/* Wave divider */
+.wave-divider { position: relative; height: 100px; overflow: hidden; }
+.wave-divider svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Cards */
+.ocean-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+}
